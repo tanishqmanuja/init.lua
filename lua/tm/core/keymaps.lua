@@ -29,6 +29,6 @@ vim.keymap.set("n", "<C-s>", ":write<CR>", { silent = true })
 vim.keymap.set("i", "<C-s>", "<Esc>:write<CR>", { silent = true })
 vim.keymap.set("v", "<C-s>", "<Esc>:write<CR>", { silent = true })
 
--- Quick mode sscape
+-- Quick mode escape
 vim.keymap.set("i", "jj", "<Esc>")
 vim.keymap.set("i", "<C-c>", "<Esc>")
