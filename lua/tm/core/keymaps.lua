@@ -20,6 +20,10 @@ vim.keymap.set("v", ">", ">gv", { desc = "Indent Right" })
 -- Overwrite selected text
 vim.keymap.set("x", "p", '"_dP', { desc = "Paste (Overwrite)" })
 
+-- Disable ctrl-f/b scrolling
+vim.keymap.set("n", "<C-f>", "<Nop>")
+vim.keymap.set("n", "<C-b>", "<Nop>")
+
 -- Faster line navigation
 vim.keymap.set({ "n", "o", "x" }, "<s-h>", "^", { desc = "Jump to start of line" })
 vim.keymap.set({ "n", "o", "x" }, "<s-l>", "g_", { desc = "Jump to end of line" })

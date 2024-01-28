@@ -19,7 +19,7 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 
 -- Undo Settings
-vim.opt.undodir = (os.getenv "HOME" or os.getenv "UserProfile") .. "/.vim/undodir"
+vim.opt.undodir = (os.getenv("HOME") or os.getenv("UserProfile")) .. "/.vim/undodir"
 vim.opt.undofile = true
 
 -- Popup Menu Settings
@@ -30,6 +30,10 @@ vim.opt.pumblend = 0 -- pop up menu transparency
 vim.opt.scrolloff = 8 -- Minimal number of screen lines to keep above and below the cursor
 vim.opt.wrap = false -- Display long lines as just one line
 vim.opt.sidescrolloff = 8 -- minimal number of screen columns to keep to the left and right of the cursor if wrap is `false`
+
+-- Local Config
+vim.opt.exrc = true
+vim.opt.secure = true
 
 -- Other General Settings
 vim.opt.mouse = "a" -- Enable mouse mode
