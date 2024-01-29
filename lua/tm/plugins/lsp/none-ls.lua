@@ -8,6 +8,18 @@ local M = {
   },
 }
 
+local DEFAULT_TOOLS = {
+  -- FORMATTERS
+  "prettier", -- js
+  "stylua", -- lua
+  "isort", -- python
+  "black", -- python
+
+  -- LINTERS
+  "pylint", -- python
+  "eslint_d", -- js
+}
+
 function M.config()
   local null_ls = require("null-ls")
   local null_ls_utils = require("null-ls.utils")
@@ -15,14 +27,7 @@ function M.config()
   local mason_null_ls = require("mason-null-ls")
 
   mason_null_ls.setup({
-    ensure_installed = {
-      "prettier", -- prettier formatter
-      "stylua", -- lua formatter
-      "isort", -- python formatter
-      "black", -- python formatter
-      "pylint", -- python linter
-      "eslint_d", -- js linter
-    },
+    ensure_installed = DEFAULT_TOOLS,
     automatic_installation = false,
     handlers = {
       mason_null_ls.default_setup,

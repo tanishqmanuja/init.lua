@@ -13,11 +13,11 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   { import = "tm.plugins" },
-  { import = "tm.lsp" },
+  { import = "tm.plugins.lsp" },
 }, {
   install = {
     missing = true,
-    colorscheme = { "onedark", "habamax" },
+    colorscheme = { "onedark" },
   },
   checker = {
     enabled = true,

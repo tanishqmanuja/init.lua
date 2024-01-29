@@ -1,12 +1,12 @@
-local ag = vim.api.nvim_create_augroup
-local au = vim.api.nvim_create_autocmd
+local agroup = vim.api.nvim_create_augroup
+local acmd = vim.api.nvim_create_autocmd
 
 -- Just an alias for quitting
 vim.api.nvim_create_user_command("Q", "q", {})
 
 -- Highlight yanked text
-local highlight_group = ag("YankHighlight", { clear = true })
-au("TextYankPost", {
+local highlight_group = agroup("YankHighlight", { clear = true })
+acmd("TextYankPost", {
   callback = function()
     vim.highlight.on_yank()
   end,
@@ -15,5 +15,5 @@ au("TextYankPost", {
 })
 
 -- Disable commenting new lines
-vim.cmd "autocmd BufEnter * set formatoptions-=cro"
-vim.cmd "autocmd BufEnter * setlocal formatoptions-=cro"
+vim.cmd("autocmd BufEnter * set formatoptions-=cro")
+vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")

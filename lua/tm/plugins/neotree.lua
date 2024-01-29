@@ -1,9 +1,17 @@
+local function toggle_neotree()
+  if vim.bo.filetype == "neo-tree" then
+    vim.cmd("Neotree close")
+  else
+    vim.cmd("Neotree focus")
+  end
+end
+
 local M = {
   "nvim-neo-tree/neo-tree.nvim",
   branch = "v3.x",
   keys = {
-    { "<C-e>", "<cmd>Neotree focus<cr>", desc = "Focus Neotree" },
-    { "<leader>fe", "<cmd>Neotree toggle<cr>", desc = "Toggle Neotree" },
+    { "<C-e>", toggle_neotree, desc = "Toggle Neotree" },
+    { "<leader>fe", "<cmd>Neotree focus<cr>", desc = "Focus Neotree" },
   },
   dependencies = {
     "nvim-lua/plenary.nvim",

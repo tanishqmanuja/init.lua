@@ -12,10 +12,13 @@ local codeium_status = function(icon, separator)
   }
 end
 
-return {
+local M = {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
-  opts = {
+}
+
+function M.config()
+  local opts = {
     options = {
       icons_enabled = false,
       theme = "onedark",
@@ -34,5 +37,9 @@ return {
       lualine_y = { "progress" },
       lualine_z = { "location" },
     },
-  },
-}
+  }
+
+  require("lualine").setup(opts)
+end
+
+return M

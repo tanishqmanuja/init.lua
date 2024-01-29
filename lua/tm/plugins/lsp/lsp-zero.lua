@@ -2,10 +2,6 @@ local M = {
   "VonHeikemen/lsp-zero.nvim",
   branch = "v3.x",
   lazy = true,
-  keys = {
-    { "<leader>i", "<cmd>LspInfo<cr>", desc = "LSP Info" },
-    { "<leader>I", "<cmd>LspInstall<cr>", desc = "LSP Install" },
-  },
   dependencies = {
     "nvim-telescope/telescope.nvim",
   },
@@ -14,6 +10,11 @@ local M = {
     vim.g.lsp_zero_extend_cmp = 0
     vim.g.lsp_zero_extend_lspconfig = 0
   end,
+}
+
+M.keys = {
+  { "<leader>i", "<cmd>LspInfo<cr>", desc = "LSP Info" },
+  { "<leader>I", "<cmd>LspInstall<cr>", desc = "LSP Install" },
 }
 
 function M.config()
@@ -42,6 +43,7 @@ function M.config()
     vim.keymap.set("n", "<C-M-H>", vim.lsp.buf.signature_help, opts)
 
     opts.desc = "Smart rename"
+    vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, opts)
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
     opts.desc = "See available code actions"

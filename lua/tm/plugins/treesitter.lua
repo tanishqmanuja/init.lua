@@ -4,25 +4,27 @@ local M = {
   event = "VimEnter",
 }
 
+local DEFAULT_LANGUAGES = {
+  "bash",
+  "c",
+  "cpp",
+  "css",
+  "gitignore",
+  "html",
+  "javascript",
+  "jsdoc",
+  "json",
+  "lua",
+  "markdown",
+  "scss",
+  "tsx",
+  "typescript",
+  "yaml",
+}
+
 function M.config()
   require("nvim-treesitter.configs").setup({
-    ensure_installed = {
-      "html",
-      "css",
-      "scss",
-      "gitignore",
-      "javascript",
-      "typescript",
-      "jsdoc",
-      "tsx",
-      "json",
-      "yaml",
-      "c",
-      "cpp",
-      "lua",
-      "markdown",
-    },
-    ignore_install = {},
+    ensure_installed = DEFAULT_LANGUAGES,
     highlight = {
       enable = true,
       additional_vim_regex_highlighting = { "markdown" },
@@ -30,9 +32,13 @@ function M.config()
     indent = {
       enable = true,
     },
-    modules = {},
+    autotag = {
+      enable = true,
+    },
     auto_install = true,
     sync_install = false,
+    ignore_install = {},
+    modules = {},
   })
 
   -- MDX

@@ -30,7 +30,7 @@ local completion_sources = {
   }, -- npm package source
 }
 
-return {
+local M = {
   "hrsh7th/nvim-cmp",
   event = "InsertEnter",
   dependencies = {
@@ -38,60 +38,63 @@ return {
     completion_sources,
     "onsails/lspkind.nvim", -- vs-code like icons
   },
-  config = function()
-    -- Extend LSP Zero if exists
-    if pcall(require, "lsp-zero") then
-      local lsp_zero = require("lsp-zero")
-
-      -- creates a minimal working config for nvim-cmp.
-      lsp_zero.extend_cmp()
-    end
-
-    -- Configure nvim-cmp
-    local cmp = require("cmp")
-
-    cmp.setup({
-      completion = {
-        completeopt = "menu,menuone,noselect",
-      },
-      sources = cmp.config.sources({
-        { name = "nvim_lsp" },
-        { name = "luasnip" },
-        { name = "npm", keyword_length = 4 },
-        { name = "path" },
-        { name = "emoji" },
-      }, {
-        { name = "buffer" },
-      }),
-      formatting = {
-        fields = { "abbr", "kind", "menu" },
-        format = require("lspkind").cmp_format({
-          mode = "symbol", -- show only symbol annotations
-          maxwidth = 50, -- prevent the popup from showing more than provided characters
-          ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead
-        }),
-        expandable_indicator = true,
-      },
-      window = {
-        completion = cmp.config.window.bordered({
-          scrollbar = false,
-        }),
-        documentation = cmp.config.window.bordered({
-          scrollbar = false,
-          max_height = 30,
-        }),
-      },
-      snippet = {
-        expand = function(args)
-          require("luasnip").lsp_expand(args.body)
-        end,
-      },
-      mapping = cmp.mapping.preset.insert({
-        ["<Tab>"] = cmp.mapping.confirm({ select = true }),
-        ["<CR>"] = cmp.mapping.confirm({ select = false }),
-        ["<C-Space>"] = cmp.mapping.complete(),
-        ["<C-e>"] = cmp.mapping.close(),
-      }),
-    })
-  end,
 }
+
+function M.config()
+  -- Extend LSP Zero if exists
+  if pcall(require, "lsp-zero") then
+    local lsp_zero = require("lsp-zero")
+
+    -- creates a minimal working config for nvim-cmp.
+    lsp_zero.extend_cmp()
+  end
+
+  -- Configure nvim-cmp
+  local cmp = require("cmp")
+
+  cmp.setup({
+    sources = cmp.config.sources({
+      { name = "nvim_lsp" },
+      { name = "luasnip" },
+      { name = "npm", keyword_length = 4 },
+      { name = "path", max_item_count = 3 },
+      { name = "emoji" },
+    }, {
+      { name = "buffer", max_item_count = 5 },
+    }),
+    formatting = {
+      fields = { "abbr", "kind", "menu" },
+      format = require("lspkind").cmp_format({
+        mode = "symbol", -- show only symbol annotations
+        maxwidth = 50, -- prevent the popup from showing more than provided characters
+        ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead
+        symbol_map = {
+          emoji = "",
+        },
+      }),
+      expandable_indicator = true,
+    },
+    window = {
+      completion = cmp.config.window.bordered({
+        scrollbar = false,
+      }),
+      documentation = cmp.config.window.bordered({
+        scrollbar = false,
+        max_height = 30,
+      }),
+    },
+    snippet = {
+      expand = function(args)
+        require("luasnip").lsp_expand(args.body)
+      end,
+    },
+    mapping = cmp.mapping.preset.insert({
+      ["<Tab>"] = cmp.mapping.confirm({ select = true }),
+      ["<CR>"] = cmp.mapping.confirm({ select = false }),
+      ["<C-Space>"] = cmp.mapping.complete(),
+      ["<C-e>"] = cmp.mapping.close(),
+    }),
+  })
+end
+
+return M

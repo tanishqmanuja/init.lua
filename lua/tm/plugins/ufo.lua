@@ -3,24 +3,10 @@ local M = {
   event = { "LspAttach" },
   dependencies = {
     "kevinhwang91/promise-async",
-    -- "luukvbaal/statuscol.nvim",
   },
 }
 
 function M.config()
-  -- local builtin = require "statuscol.builtin"
-  -- local cfg = {
-  --   setopt = true,
-  --   relculright = true,
-  --   segments = {
-  --     { text = { builtin.foldfunc, " " }, click = "v:lua.ScFa", hl = "Comment" },
-  --     { text = { "%s" }, click = "v:lua.ScSa" },
-  --     { text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" },
-  --   },
-  -- }
-  --
-  -- require("statuscol").setup(cfg)
-
   vim.o.foldcolumn = "0" -- '0' is not bad, hide it!
   vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
   vim.o.foldlevelstart = 99
