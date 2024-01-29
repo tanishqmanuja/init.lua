@@ -38,22 +38,6 @@ function M.config()
   -- link with nvim-cmp
   lsp_zero.extend_lspconfig()
 
-  -- setup diagnostic config
-  lsp_zero.set_sign_icons({
-    error = "E",
-    warn = "W",
-    hint = "H",
-    info = "I",
-  })
-
-  vim.diagnostic.config({
-    signs = true,
-    virtual_text = false,
-    update_in_insert = false,
-    underline = false,
-    severity_sort = true,
-  })
-
   local default_setup = function(server_name)
     local ok, settings = pcall(require, LSP_SETTINGS .. "." .. server_name)
     if ok then

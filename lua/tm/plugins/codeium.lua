@@ -19,7 +19,7 @@ return {
       return vim.fn["codeium#CycleCompletions"](-1)
     end, { expr = true })
 
-    vim.keymap.set("i", "<C-x>", function()
+    vim.keymap.set("i", "<C-e>", function()
       return vim.fn["codeium#Clear"]()
     end, { expr = true })
   end,

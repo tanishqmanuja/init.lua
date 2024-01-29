@@ -17,3 +17,6 @@ auto_command("TextYankPost", {
 -- Disable commenting new lines
 vim.cmd("autocmd BufEnter * set formatoptions-=cro")
 vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
+
+-- Reopen from last cursor position
+vim.cmd('autocmd BufReadPost * if line("\'\\"") > 1 && line("\'\\"") <= line("$") | exe "normal! g\'\\"" | endif')

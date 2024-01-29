@@ -9,6 +9,7 @@ local M = {
     },
     { "nvim-telescope/telescope-fzy-native.nvim" },
     { "danielfalk/smart-open.nvim", dependencies = { "kkharji/sqlite.lua" } },
+    { "nvim-telescope/telescope-ui-select.nvim" },
   },
 }
 
@@ -74,11 +75,21 @@ function M.config()
         disable_devicons = false,
         open_buffer_indicators = { previous = "•", others = "∘" },
       },
+      ["ui-select"] = {
+        require("telescope.themes").get_dropdown({
+          -- even more opts
+        }),
+      },
     },
   }
 
   telescope.setup(opts)
+  -- load plugins
+  require("telescope").load_extension("fzf")
+  require("telescope").load_extension("fzy_native")
+  require("telescope").load_extension("ui-select")
 
+  -- smart open
   vim.cmd([[command! -nargs=0 SmartOpen :Telescope smart_open]])
 end
 

@@ -5,11 +5,6 @@ local M = {
   dependencies = {
     "nvim-telescope/telescope.nvim",
   },
-  init = function()
-    -- Disable automatic setup, we are doing it manually
-    vim.g.lsp_zero_extend_cmp = 0
-    vim.g.lsp_zero_extend_lspconfig = 0
-  end,
 }
 
 M.keys = {
@@ -47,6 +42,7 @@ function M.config()
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
     opts.desc = "See available code actions"
+    vim.keymap.set({ "n", "v" }, "<F4>", vim.lsp.buf.code_action, opts)
     vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
 
     opts.desc = "Show Workspace Symbols"
