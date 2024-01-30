@@ -52,6 +52,11 @@ vim.keymap.set("n", "<C-s>", ":write<CR>", { silent = true })
 vim.keymap.set("i", "<C-s>", "<Esc>:write<CR>", { silent = true })
 vim.keymap.set("v", "<C-s>", "<Esc>:write<CR>", { silent = true })
 
+-- Diagnostics
+vim.keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>")
+vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev({ float = false })<cr>")
+vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next({ float = false })<cr>")
+
 -- Easy Quit
 vim.keymap.set("n", "<leader>q", "<cmd>q<CR>", { silent = true })
 vim.keymap.set("n", "<leader>Q", "<cmd>qa!<CR>", { silent = true })

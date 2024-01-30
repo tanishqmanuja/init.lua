@@ -1,6 +1,6 @@
 local M = {
   "stevearc/dressing.nvim",
-  opts = {},
+  event = "VeryLazy",
 }
 
 return M

@@ -2,18 +2,9 @@ local snippets_engine = {
   "L3MON4D3/LuaSnip",
   version = "v2.*",
   dependencies = {
-    "rafamadriz/friendly-snippets",
-    "VonHeikemen/lsp-zero.nvim",
+    "rafamadriz/friendly-snippets", -- snippet provider
   },
   build = vim.fn.has("win31") ~= 0 and "make install_jsregexp" or nil,
-  config = function(_, opts)
-    if opts then
-      require("luasnip").config.setup(opts)
-    end
-    vim.tbl_map(function(type)
-      require("luasnip.loaders.from_" .. type).lazy_load()
-    end, { "vscode", "snipmate", "lua" })
-  end,
 }
 
 local completion_sources = {
@@ -41,15 +32,8 @@ local M = {
 }
 
 function M.config()
-  -- Extend LSP Zero if exists
-  if pcall(require, "lsp-zero") then
-    local lsp_zero = require("lsp-zero")
+  require("luasnip.loaders.from_vscode").lazy_load()
 
-    -- creates a minimal working config for nvim-cmp.
-    lsp_zero.extend_cmp()
-  end
-
-  -- Configure nvim-cmp
   local cmp = require("cmp")
 
   cmp.setup({
