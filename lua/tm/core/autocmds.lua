@@ -14,6 +14,12 @@ auto_command("TextYankPost", {
   pattern = "*",
 })
 
+-- Source tmux.conf on save
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = { "*tmux.conf" },
+  command = "execute 'silent !tmux source <afile> --silent'",
+})
+
 -- Disable commenting new lines
 vim.cmd("autocmd BufEnter * set formatoptions-=cro")
 vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
