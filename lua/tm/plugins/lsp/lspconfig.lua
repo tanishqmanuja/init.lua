@@ -11,6 +11,7 @@ local M = {
 }
 
 local LSP_SETTINGS = "tm.lsp.settings"
+local LSP_KEYMAPS = "tm.lsp.keymaps"
 
 M.keys = {
   { "<leader>il", "<cmd>silent! LspInfo<cr>", desc = "LspInfo" },
@@ -45,6 +46,15 @@ function M.config()
     handlers = {
       default_setup,
     },
+  })
+
+  local group = vim.api.nvim_create_augroup("LspKeymaps", {})
+  vim.api.nvim_create_autocmd("LspAttach", {
+    group = group,
+    callback = function(event)
+      local opts = { buffer = event.buf }
+      require(LSP_KEYMAPS).on_attach(opts)
+    end,
   })
 end
 
