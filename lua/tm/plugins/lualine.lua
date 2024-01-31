@@ -21,7 +21,7 @@ function M.config()
   local opts = {
     options = {
       icons_enabled = false,
-      theme = "onedark",
+      theme = "auto",
       globalstatus = true,
       component_separators = { right = "«", left = "»" },
       section_separators = "",
