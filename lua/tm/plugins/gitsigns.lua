@@ -5,41 +5,25 @@ local M = {
 }
 
 M.config = function()
-  local icons = require("tm.icons")
+  local icons = {
+    BoldLineMiddle = "┃",
+    BoldLineDashedMiddle = "┋",
+    TriangleShortArrowRight = "",
+  }
 
   require("gitsigns").setup({
     signs = {
-      add = {
-        hl = "GitSignsAdd",
-        text = icons.ui.BoldLineMiddle,
-        numhl = "GitSignsAddNr",
-        linehl = "GitSignsAddLn",
-      },
-      change = {
-        hl = "GitSignsChange",
-        text = icons.ui.BoldLineDashedMiddle,
-        numhl = "GitSignsChangeNr",
-        linehl = "GitSignsChangeLn",
-      },
-      delete = {
-        hl = "GitSignsDelete",
-        text = icons.ui.TriangleShortArrowRight,
-        numhl = "GitSignsDeleteNr",
-        linehl = "GitSignsDeleteLn",
-      },
-      topdelete = {
-        hl = "GitSignsDelete",
-        text = icons.ui.TriangleShortArrowRight,
-        numhl = "GitSignsDeleteNr",
-        linehl = "GitSignsDeleteLn",
-      },
-      changedelete = {
-        hl = "GitSignsChange",
-        text = icons.ui.BoldLineMiddle,
-        numhl = "GitSignsChangeNr",
-        linehl = "GitSignsChangeLn",
-      },
+      add = { text = icons.BoldLineMiddle },
+      change = { text = icons.BoldLineMiddle },
+      delete = { text = icons.TriangleShortArrowRight },
+      topdelete = { text = icons.TriangleShortArrowRight },
+      changedelete = { text = icons.BoldLineMiddle },
+      untracked = { text = icons.BoldLineDashedMiddle },
     },
+    signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
+    numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
+    linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
+    word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
     watch_gitdir = {
       interval = 1000,
       follow_files = true,

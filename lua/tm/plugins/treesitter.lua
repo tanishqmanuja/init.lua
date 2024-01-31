@@ -2,6 +2,9 @@ local M = {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
   event = "VimEnter",
+  dependencies = {
+    "windwp/nvim-ts-autotag",
+  },
 }
 
 local DEFAULT_LANGUAGES = {

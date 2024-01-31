@@ -41,7 +41,7 @@ function M.config()
   local opts = {
     defaults = {
       prompt_prefix = " ",
-      file_ignore_patterns = { ".git", "node_modules", ".next" },
+      file_ignore_patterns = { "^.git", "node_modules", ".next" },
       vimgrep_arguments = {
         "rg",
         "--color=never",

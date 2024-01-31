@@ -2,8 +2,20 @@ local M = {
   "williamboman/mason.nvim",
   lazy = false,
   dependencies = {
+    "williamboman/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
   },
+}
+
+local DEFAULT_SERVERS = {
+  "cssls",
+  "emmet_ls",
+  "html",
+  "jsonls",
+  "lua_ls",
+  "pyright",
+  "tailwindcss",
+  "tsserver",
 }
 
 local DEFAULT_FORMATTERS = {
@@ -36,7 +48,7 @@ function M.config()
   })
 
   require("mason-tool-installer").setup({
-    ensure_installed = vim.tbl_flatten({ DEFAULT_FORMATTERS, DEFAULT_LINTERS }),
+    ensure_installed = vim.tbl_flatten({ DEFAULT_SERVERS, DEFAULT_FORMATTERS, DEFAULT_LINTERS }),
   })
 end
 

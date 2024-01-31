@@ -36,9 +36,6 @@ M.on_attach = function(opts)
   opts.desc = "Show LSP Diagnostics"
   vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
 
-  opts.desc = "Show buffer diagnostics"
-  vim.keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
-
   opts.desc = "Hover Documentation"
   vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 end

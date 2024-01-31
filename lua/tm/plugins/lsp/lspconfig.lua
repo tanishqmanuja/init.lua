@@ -12,17 +12,6 @@ local M = {
 
 local LSP_SETTINGS = "tm.lsp.settings"
 
-local DEFAULT_SERVERS = {
-  "cssls",
-  "emmet_ls",
-  "html",
-  "jsonls",
-  "lua_ls",
-  "pyright",
-  "tailwindcss",
-  "tsserver",
-}
-
 M.keys = {
   { "<leader>il", "<cmd>silent! LspInfo<cr>", desc = "LspInfo" },
 }
@@ -52,7 +41,6 @@ function M.config()
   end
 
   mason_lspconfig.setup({
-    ensure_installed = DEFAULT_SERVERS,
     automatic_installation = true,
     handlers = {
       default_setup,
