@@ -1,1 +1,1 @@
-require("tm")
+require("tanishqmanuja")
