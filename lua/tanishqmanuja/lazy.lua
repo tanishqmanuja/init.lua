@@ -12,8 +12,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  { import = "tm.plugins" },
-  { import = "tm.plugins.lsp" },
+  { import = "tanishqmanuja.plugins" },
+  { import = "tanishqmanuja.plugins.lsp" },
 }, {
   install = {
     missing = true,

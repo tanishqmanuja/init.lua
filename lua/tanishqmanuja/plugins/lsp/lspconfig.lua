@@ -10,8 +10,8 @@ local M = {
   },
 }
 
-local LSP_SETTINGS = "tm.lsp.settings"
-local LSP_KEYMAPS = "tm.lsp.keymaps"
+local LSP_SETTINGS = "tanishqmanuja.lsp.settings"
+local LSP_KEYMAPS = "tanishqmanuja.lsp.keymaps"
 
 M.keys = {
   { "<leader>il", "<cmd>silent! LspInfo<cr>", desc = "LspInfo" },
