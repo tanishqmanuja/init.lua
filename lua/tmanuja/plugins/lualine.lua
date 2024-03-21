@@ -22,6 +22,7 @@ return {
       icons_enabled = true,
       component_separators = { right = '«', left = '»' },
       section_separators = '',
+      disabled_filetypes = { 'alpha' },
     },
     sections = {
       lualine_a = { 'mode' },
