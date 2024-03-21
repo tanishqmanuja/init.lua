@@ -11,6 +11,7 @@ return {
     end
 
     local formatters_by_ft = {
+      sh = { 'shfmt' },
       lua = { 'stylua' },
       python = { 'isort', 'black' },
     }
