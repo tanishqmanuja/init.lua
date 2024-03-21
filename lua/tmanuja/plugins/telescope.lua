@@ -29,6 +29,11 @@ return {
           'node_modules',
           '.git',
         },
+        mappings = {
+          i = {
+            ['<Esc>'] = require('telescope.actions').close,
+          },
+        },
         vimgrep_arguments = {
           'rg',
           '--color=never',
