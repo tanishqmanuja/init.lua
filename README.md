@@ -1,6 +1,4 @@
-# init.lua
-
-My personal config for Neovim
+![Logo](https://raw.github.com/tanishqmanuja/static/main/banners/init.lua.png?maxAge=2592000)
 
 ### External dependencies
 
