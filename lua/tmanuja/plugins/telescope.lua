@@ -100,7 +100,6 @@ return {
 
     vim.keymap.set('n', '<leader>sb', function()
       builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown({
-        winblend = 10,
         previewer = false,
       }))
     end, { desc = '[S]earch current [B]uffer' })
