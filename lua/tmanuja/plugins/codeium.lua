@@ -11,8 +11,10 @@ return {
   },
   config = function()
     -- Ctrl+Enter to accept code suggestion
-    --  NOTE: <C-J> catches Ctrl+Enter
-    vim.keymap.set('i', '<C-J>', function()
+    --  NOTE: Doesn't work in every Terminal by default
+    --  <C-J> catches Ctrl+Enter for some,
+    --  Others may have to modify their terminal settings.
+    vim.keymap.set('i', '<C-CR>', function()
       return vim.fn['codeium#Accept']()
     end, { expr = true })
 

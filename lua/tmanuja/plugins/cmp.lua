@@ -48,6 +48,8 @@ return {
     cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 
     cmp.setup({
+      completion = { completeopt = 'menu,menuone,noinsert' },
+
       sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
