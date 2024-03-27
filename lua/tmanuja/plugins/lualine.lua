@@ -12,6 +12,8 @@ local codeium_status = function(icon, separator)
   }
 end
 
+local is_tmux = os.getenv('TMUX')
+
 return {
   'nvim-lualine/lualine.nvim',
   event = 'VimEnter',
@@ -26,7 +28,7 @@ return {
     },
     sections = {
       lualine_a = { 'mode' },
-      lualine_b = { 'branch', 'diff', 'diagnostics' },
+      lualine_b = { is_tmux and '' or 'branch', 'diff', 'diagnostics' },
       lualine_c = { 'filename' },
       lualine_x = {
         codeium_status(),
