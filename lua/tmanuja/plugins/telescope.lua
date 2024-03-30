@@ -1,6 +1,5 @@
 return {
   'nvim-telescope/telescope.nvim',
-  event = 'VimEnter',
   dependencies = {
     'nvim-lua/plenary.nvim',
     { -- If encountering errors, see telescope-fzf-native README for installation instructions
@@ -110,5 +109,8 @@ return {
         prompt_title = 'Live Grep in Open Files',
       })
     end, { desc = '[S]earch [/] in Open Files' })
+
+    -- Command to show recently opened files
+    vim.cmd([[command! -nargs=0 GoToFile :Telescope smart_open]])
   end,
 }
