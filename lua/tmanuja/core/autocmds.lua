@@ -21,6 +21,14 @@ vim.api.nvim_create_autocmd('BufWritePost', {
   command = "execute 'silent !tmux source <afile> --silent'",
 })
 
+-- Set filetype for .conf
+vim.api.nvim_create_autocmd({ 'BufRead' }, {
+  pattern = { '*.conf' },
+  callback = function()
+    vim.cmd([[set filetype=sh]])
+  end,
+})
+
 -- Fix Telescope Prompt (smart-open)
 vim.api.nvim_create_autocmd('FileType', {
   group = vim.api.nvim_create_augroup('user-telescope-picker', { clear = true }),
