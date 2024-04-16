@@ -17,7 +17,7 @@ return {
     },
     'nvim-telescope/telescope-ui-select.nvim',
     { 'nvim-tree/nvim-web-devicons' },
-    { 'danielfalk/smart-open.nvim', dependencies = { 'kkharji/sqlite.lua' } },
+    { 'danielfalk/smart-open.nvim', branch = '0.2.x', dependencies = { 'kkharji/sqlite.lua' } },
   },
   config = function()
     require('telescope').setup({

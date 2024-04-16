@@ -29,17 +29,6 @@ vim.api.nvim_create_autocmd({ 'BufRead' }, {
   end,
 })
 
--- Fix Telescope Prompt (smart-open)
-vim.api.nvim_create_autocmd('FileType', {
-  group = vim.api.nvim_create_augroup('user-telescope-picker', { clear = true }),
-  pattern = { 'TelescopePrompt' },
-  callback = function(event)
-    vim.keymap.set('i', '<C-c>', function()
-      require('telescope.actions').close(event.buf)
-    end, { noremap = true, silent = true, buffer = event.buf })
-  end,
-})
-
 -- FIX: Migrate below cmds to pure lua based autocmds
 
 -- Disable commenting new lines
