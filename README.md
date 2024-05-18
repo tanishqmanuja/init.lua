@@ -4,6 +4,7 @@
 
 - [neovim](https://github.com/neovim/neovim)
 - [fzf](https://github.com/junegunn/fzf)
+- [fd](https://github.com/sharkdp/fd)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [lazygit](https://github.com/kdheepak/lazygit)
 
