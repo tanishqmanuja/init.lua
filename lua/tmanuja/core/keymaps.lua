@@ -42,6 +42,10 @@ vim.keymap.set('n', '<Space>', '<Nop>')
 -- Switch Last Buffer
 vim.keymap.set('n', "<leader>'", '<C-^>', { desc = 'Switch Last Buffer' })
 
+-- Easy newlines
+vim.keymap.set('n', '<leader>o', 'o<esc>0"_Dzz', { desc = 'Insert new line below' })
+vim.keymap.set('n', '<leader>O', 'O<esc>0"_Dzz', { desc = 'Insert new line above' })
+
 -- Faster line navigation
 vim.keymap.set({ 'n', 'o', 'x' }, '<s-h>', '^', { desc = 'Jump to start of line' })
 vim.keymap.set({ 'n', 'o', 'x' }, '<s-l>', 'g_', { desc = 'Jump to end of line' })
